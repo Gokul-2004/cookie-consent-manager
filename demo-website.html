@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Website - Cookie Consent Widget</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Content Sections */
+        .features {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Demo Info Banner */
+        .demo-info {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .demo-info strong {
+            color: #856404;
+        }
+
+        /* Content Area */
+        .content-section {
+            padding: 3rem 0;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .content-section p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Widget will appear at bottom - styled by widget itself */
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">🌐 Demo Website</div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Our Demo Website</h1>
+            <p>This is a demonstration of how the Cookie Consent Widget looks and works when integrated into a real website.</p>
+            <a href="#features" class="cta-button">Explore Features</a>
+        </div>
+    </section>
+
+    <!-- Demo Info -->
+    <div class="container">
+        <div class="demo-info">
+            <strong>📌 Demo Mode:</strong> This page demonstrates the cookie consent widget integration. 
+            The banner should appear at the bottom of the page. Try interacting with it to see how it works!
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 1rem;">Our Features</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">
+                Experience our amazing features and see how the cookie consent widget integrates seamlessly
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🚀 Fast Performance</h3>
+                    <p>Our website loads quickly and efficiently, providing the best user experience possible.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔒 Secure & Private</h3>
+                    <p>We respect your privacy and comply with DPDP regulations. Your data is safe with us.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Responsive Design</h3>
+                    <p>Our website works perfectly on all devices - desktop, tablet, and mobile.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🍪 Cookie Management</h3>
+                    <p>You have full control over which cookies you accept. Manage your preferences anytime.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌍 Multi-Language</h3>
+                    <p>Available in multiple languages including English and Hindi for better accessibility.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚡ Easy Integration</h3>
+                    <p>Simple one-line script tag integration. No complex setup required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <h2>How It Works</h2>
+            <p>
+                When you visit this website, a cookie consent banner appears at the bottom of the page. 
+                This banner is DPDP compliant and gives you full control over which cookies you accept.
+            </p>
+            <p>
+                You can choose to:
+            </p>
+            <ul style="margin-left: 2rem; color: #666;">
+                <li><strong>Accept All:</strong> Accept all cookies including analytics and marketing</li>
+                <li><strong>Reject All:</strong> Only accept essential cookies (required for website functionality)</li>
+                <li><strong>Customize:</strong> Choose exactly which cookie categories you want to allow</li>
+            </ul>
+            <p style="margin-top: 1rem;">
+                Your preferences are saved and you can change them anytime by clicking the cookie settings link 
+                (usually in the footer) or by using the widget's preference center.
+            </p>
+        </div>
+    </section>
+
+    <!-- Another Content Section -->
+    <section class="content-section" style="background: #f9f9f9;">
+        <div class="container">
+            <h2>Cookie Consent Widget Features</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div>
+                    <h3 style="color: #667eea; margin-bottom: 0.5rem;">✅ DPDP Compliant</h3>
+                    <p style="color: #666;">Fully compliant with Digital Personal Data Protection Act requirements.</p>
+                </div>
+                <div>
+                    <h3 style="color: #667eea; margin-bottom: 0.5rem;">🎨 Customizable</h3>
+                    <p style="color: #666;">Customize colors, position, and messaging to match your brand.</p>
+                </div>
+                <div>
+                    <h3 style="color: #667eea; margin-bottom: 0.5rem;">📊 Analytics Ready</h3>
+                    <p style="color: #666;">Track consent rates and user preferences with built-in analytics.</p>
+                </div>
+                <div>
+                    <h3 style="color: #667eea; margin-bottom: 0.5rem;">🔧 Easy Integration</h3>
+                    <p style="color: #666;">One simple script tag - that's all you need to get started.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Demo Website. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                <a href="#" onclick="window.ConsentManager?.showPreferences(); return false;" style="color: #ffc107; text-decoration: underline;">
+                    Cookie Preferences
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Widget Integration -->
+    <!-- This is the ONLY line needed to integrate the widget! -->
+    <script
+        src="http://127.0.0.1:8000/widget/consent-widget.js"
+        data-domain-script="n2qjxw67pgs7"
+        data-api-url="http://127.0.0.1:8000"
+        charset="UTF-8"
+    ></script>
+
+    <!-- Demo: Show consent status (for demonstration purposes) -->
+    <script>
+        // Wait for widget to load
+        setTimeout(() => {
+            if (window.ConsentManager) {
+                console.log('✅ Widget loaded successfully!');
+                console.log('Consent Manager API:', window.ConsentManager);
+                
+                // Example: Check if analytics is consented
+                const hasAnalytics = window.ConsentManager.hasConsent('analytics');
+                console.log('Analytics consent:', hasAnalytics);
+                
+                // Listen for consent changes
+                window.ConsentManager.onConsentChange((categories) => {
+                    console.log('Consent changed:', categories);
+                });
+            } else {
+                console.warn('⚠️ Widget not loaded. Make sure:');
+                console.warn('1. Server is running on http://127.0.0.1:8000');
+                console.warn('2. Configuration with script_id "test123" exists and is published');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
+

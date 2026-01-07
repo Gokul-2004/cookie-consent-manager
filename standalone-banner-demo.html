@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Consent Banner - OneTrust Style Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .info-box {
+            background: #e8f4f8;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .info-box strong {
+            color: #0056b3;
+        }
+
+        .content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .feature h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🍪 Cookie Consent Banner</h1>
+            <p class="subtitle">OneTrust-Style Demo - Standalone</p>
+        </header>
+    </header>
+
+    <div class="container">
+        <div class="info-box">
+            <strong>📌 Standalone Mode:</strong> This page works completely offline! 
+            The banner uses OneTrust-style design with centered modal, two-panel preference center, and green buttons.
+            Scroll down to see the banner.
+        </div>
+
+        <div class="content">
+            <h2>About This Demo</h2>
+            <p>
+                This is a standalone demonstration of the cookie consent banner widget styled to match OneTrust's professional design.
+                It includes a mock API that simulates the backend, so you can see how the banner looks and works without running the server.
+            </p>
+            <p>
+                The banner will appear as a centered modal (OneTrust style). You can:
+            </p>
+            <ul style="margin-left: 2rem; color: #666; margin-top: 1rem;">
+                <li>Click <strong>"Allow All"</strong> to accept all cookies</li>
+                <li>Click <strong>"Accept only necessary"</strong> to reject non-essential cookies</li>
+                <li>Click <strong>"Adjust my preferences"</strong> to open the preference center with two-panel layout</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>OneTrust-Style Features</h2>
+            <div class="features">
+                <div class="feature">
+                    <h3>✅ Centered Modal Banner</h3>
+                    <p>Professional centered modal design instead of fixed bottom banner, matching OneTrust's approach.</p>
+                </div>
+                <div class="feature">
+                    <h3>🎨 Two-Panel Preference Center</h3>
+                    <p>Left navigation panel with categories, right panel with detailed information and vendor lists.</p>
+                </div>
+                <div class="feature">
+                    <h3>🔒 Always Active Labels</h3>
+                    <p>Essential cookies show "Always Active" status and cannot be toggled, clearly indicating they're required.</p>
+                </div>
+                <div class="feature">
+                    <h3>🟢 Green Brand Colors</h3>
+                    <p>Professional green buttons (#00A862) matching OneTrust's brand identity.</p>
+                </div>
+                <div class="feature">
+                    <h3>📋 Vendor Lists</h3>
+                    <p>Detailed vendor lists with toggle switches for each third-party service.</p>
+                </div>
+                <div class="feature">
+                    <h3>💼 Professional Typography</h3>
+                    <p>Clean, modern typography with proper hierarchy and spacing.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div style="text-align: center; padding: 2rem; color: #666;">
+            <p>⬇️ Scroll down to see the OneTrust-style banner ⬇️</p>
+        </div>
+    </div>
+
+    <!-- Mock API - Intercepts fetch requests and returns mock config -->
+    <script>
+        // Mock API Configuration - OneTrust style categories
+        const MOCK_CONFIG = {
+            script_id: "demo123",
+            domain: "localhost",
+            categories: {
+                strictly_necessary: {
+                    name: "Strictly Necessary Cookies",
+                    description: "These cookies are set to provide the service, application or resource requested. Without these cookies, your request cannot be properly delivered. They are usually set to manage actions made by you, such as requesting website visual elements, pages resources or due user login/logoff. We can also use these cookies to set up essential functionalities to guarantee the security and efficiency of the service requested, like authentication and load balancer request.",
+                    required: true
+                },
+                functional: {
+                    name: "Functional Cookies",
+                    description: "These cookies are set by us or by third party service providers we use to implement additional functionalities or to enhance features and website performance, however they are not directly related with the service you requested. Services and functionalities implemented by these cookies support features like automatic filled text box, live web chat platform, non-necessary forms and optional security parameters like a single sign-on (SSO).",
+                    required: false
+                },
+                performance: {
+                    name: "Performance Cookies",
+                    description: "Information collected with these cookies is used in operation to measure website or software KPIs, such as performance. With the usage of these cookies we are able to count visits and traffic sources to improve the performance of our site and application. If you do not allow these cookies, we will not know when you have visited our site.",
+                    required: false
+                },
+                targeting: {
+                    name: "Targeting Cookies",
+                    description: "These cookies are set by our advertising partners to provide behavioral advertising and re-marketing analytical data. They collect any type of browsing information necessary to create profiles and to understand user habits in order to develop an individual and specific advertising routine. The profile created regarding your browsing interest and behavior is used to customize the ads you see when you access other websites.",
+                    required: false
+                }
+            },
+            banner_config: {
+                position: "center", // OneTrust uses centered modal
+                colors: {
+                    primary: "#00A862", // OneTrust green
+                    background: "#ffffff"
+                }
+            },
+            default_language: "en",
+            supported_languages: ["en", "hi"],
+            cookie_policy_url: "https://example.com/cookie-policy",
+            webhook_url: null,
+            external_tool_url: null
+        };
+
+        // Intercept fetch requests to mock the API
+        const originalFetch = window.fetch;
+        window.fetch = function(...args) {
+            const url = args[0];
+            
+            // Check if this is a config API request
+            if (typeof url === 'string' && url.includes('/api/config/')) {
+                console.log('📡 Mock API: Returning OneTrust-style configuration');
+                return Promise.resolve({
+                    ok: true,
+                    status: 200,
+                    statusText: 'OK',
+                    json: () => Promise.resolve(MOCK_CONFIG),
+                    headers: new Headers({ 'Content-Type': 'application/json' })
+                });
+            }
+            
+            // Check if this is a consent API request (for saving consent)
+            if (typeof url === 'string' && url.includes('/api/consent')) {
+                console.log('📡 Mock API: Saving consent');
+                return Promise.resolve({
+                    ok: true,
+                    status: 200,
+                    statusText: 'OK',
+                    json: () => Promise.resolve({ 
+                        consent_id: 'mock_' + Date.now(),
+                        status: 'accepted',
+                        message: 'Consent saved (mock mode)'
+                    }),
+                    headers: new Headers({ 'Content-Type': 'application/json' })
+                });
+            }
+            
+            // For all other requests, use original fetch
+            return originalFetch.apply(this, args);
+        };
+
+        console.log('✅ Mock API initialized - OneTrust-style banner will work offline!');
+    </script>
+
+    <!-- Cookie Consent Widget -->
+    <script
+        src="widget/consent-widget.js"
+        data-domain-script="demo123"
+        data-api-url="http://localhost:8000"
+        charset="UTF-8"
+    ></script>
+
+    <script>
+        // Wait for widget to load and verify
+        setTimeout(() => {
+            if (window.ConsentManager) {
+                console.log('✅ Widget loaded successfully!');
+                console.log('Consent Manager API:', window.ConsentManager);
+            } else {
+                console.warn('⚠️ Widget not loaded. Make sure widget/consent-widget.js exists');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

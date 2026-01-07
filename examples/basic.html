@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Consent Manager - Basic Example</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        .info {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cookie Consent Manager - Basic Integration</h1>
+    
+    <div class="info">
+        <h2>How it works:</h2>
+        <ol>
+            <li>The widget script is loaded below</li>
+            <li>It reads the <code>data-domain-script</code> attribute</li>
+            <li>Fetches configuration from the API</li>
+            <li>Displays the consent banner</li>
+            <li>Exposes <code>window.ConsentManager</code> API for tag managers</li>
+        </ol>
+    </div>
+
+    <h2>Integration Code:</h2>
+    <pre><code>&lt;script
+    src="http://localhost:8000/widget/consent-widget.js"
+    data-domain-script="YOUR_SCRIPT_ID"
+    charset="UTF-8"
+&gt;&lt;/script&gt;</code></pre>
+
+    <h2>Using Consent State:</h2>
+    <pre><code>// Check if analytics is consented
+if (window.ConsentManager.hasConsent('analytics')) {
+    // Load Google Analytics
+    console.log('Analytics consented');
+}
+
+// Get all consents
+const consents = window.ConsentManager.getAllConsents();
+console.log('All consents:', consents);
+
+// Listen for consent changes
+window.ConsentManager.onConsentChange(function(categories) {
+    console.log('Consent changed:', categories);
+});</code></pre>
+
+    <div id="consent-status" style="margin-top: 30px; padding: 15px; background: #e8f4f8; border-radius: 5px;">
+        <strong>Consent Status:</strong> <span id="status-text">Checking...</span>
+    </div>
+
+    <!-- Widget Script -->
+    <script
+        src="http://localhost:8000/widget/consent-widget.js"
+        data-domain-script="test123"
+        data-api-url="http://localhost:8000"
+        charset="UTF-8"
+    ></script>
+
+    <script>
+        // Check consent status after widget loads
+        setTimeout(() => {
+            if (window.ConsentManager) {
+                const consents = window.ConsentManager.getAllConsents();
+                const hasConsent = Object.keys(consents).length > 0;
+                document.getElementById('status-text').textContent = hasConsent 
+                    ? 'Consent given: ' + JSON.stringify(consents)
+                    : 'No consent yet';
+            } else {
+                document.getElementById('status-text').textContent = 'Widget not loaded';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+
+
+
+
+
