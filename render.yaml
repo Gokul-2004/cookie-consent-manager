@@ -1,0 +1,26 @@
+services:
+  # Backend API Service
+  - type: web
+    name: cookie-consent-api
+    env: python
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cookie-consent-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "false"
+      - key: CORS_ORIGINS
+        value: '["*"]' # Change this to specific domains in production
+    autoDeploy: true
+
+databases:
+  # PostgreSQL Database
+  - name: cookie-consent-db
+    databaseName: cookie_consent
+    user: cookie_user
+    plan: free
